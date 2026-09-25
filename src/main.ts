@@ -61,6 +61,7 @@ guestButtons.forEach((btn) => {
 
 async function submitBooking(form: HTMLFormElement, note: HTMLElement, button: HTMLButtonElement) {
   const originalButtonText = button.textContent || 'Send my request'
+  const hint = document.getElementById('book-form-hint')
   const formData = new FormData(form)
   if (!formData.has('botcheck')) formData.delete('botcheck')
   const payload = {
@@ -86,6 +87,7 @@ async function submitBooking(form: HTMLFormElement, note: HTMLElement, button: H
     const result = (await response.json()) as { success?: boolean }
     if (!response.ok || result.success === false) throw new Error('Web3Forms submission failed')
     note.textContent = 'Thank you. We will confirm by phone or WhatsApp.'
+    if (hint) hint.hidden = true
   } catch {
     note.textContent = FORM_ERROR_MESSAGE
   } finally {
