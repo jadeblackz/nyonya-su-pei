@@ -106,15 +106,74 @@ bookForm?.addEventListener('submit', (e) => {
   if (note && button) void submitBooking(bookForm, note, button)
 })
 
-// The waiting list remains a static form until its separate Web3Forms key is provided.
+const WAITLIST_WEB3FORMS_ACCESS_KEY = '74f157b2-f1ea-481b-a896-c4c7d1722bee'
+
+async function submitWaitlist(form: HTMLFormElement, note: HTMLElement, button: HTMLButtonElement) {
+  const originalButtonText = button.textContent || 'Join the waiting list'
+  const formData = new FormData(form)
+  const payload = {
+    access_key: WAITLIST_WEB3FORMS_ACCESS_KEY,
+    ...Object.fromEntries(formData.entries()),
+  }
+
+  button.disabled = true
+  button.textContent = 'Sending…'
+  note.hidden = false
+  note.textContent = 'Sending…'
+  note.focus()
+
+  try {
+    const response = await fetch(WEB3FORMS_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify(payload),
+    })
+    const result = (await response.json()) as { success?: boolean }
+    if (!response.ok || result.success === false) throw new Error('Web3Forms submission failed')
+    note.textContent = 'You are on the waiting list. We will write when the kitchen opens.'
+  } catch {
+    note.textContent = FORM_ERROR_MESSAGE
+  } finally {
+    button.disabled = false
+    button.textContent = originalButtonText
+  }
+}
+
 const waitForm = document.getElementById('waitlist-form') as HTMLFormElement | null
+const waitInterestInput = waitForm?.querySelector<HTMLInputElement>('input[name="interest"]')
+const waitInterestButtons = waitForm?.querySelectorAll<HTMLButtonElement>('[data-interest]')
+
+function updateWaitlistInterests() {
+  if (!waitInterestInput || !waitInterestButtons) return
+  const selected = Array.from(waitInterestButtons)
+    .filter((button) => button.getAttribute('aria-pressed') === 'true')
+    .map((button) => button.dataset.interest || '')
+    .filter(Boolean)
+  waitInterestInput.value = selected.join(', ')
+}
+
+waitInterestButtons?.forEach((button) => {
+  button.addEventListener('click', () => {
+    const selected = button.getAttribute('aria-pressed') !== 'true'
+    button.setAttribute('aria-pressed', selected ? 'true' : 'false')
+    button.className = selected
+      ? 'rounded-lg px-4 py-4 text-left text-lg font-medium bg-teal-soft ring-2 ring-teal'
+      : 'rounded-lg px-4 py-4 text-left text-lg font-medium bg-paper shadow-card'
+    updateWaitlistInterests()
+  })
+})
+
 waitForm?.addEventListener('submit', (e) => {
   e.preventDefault()
-  const note = document.getElementById('waitlist-note')
-  if (note) {
-    note.hidden = false
-    note.textContent =
-      'Waiting list is not connected yet. Email nyonyasupei@gmail.com or WhatsApp +60 16-414 1416 to leave your name.'
-    note.focus()
+  if (!waitForm.checkValidity()) {
+    waitForm.reportValidity()
+    return
   }
+  updateWaitlistInterests()
+  const note = document.getElementById('waitlist-note')
+  const button = waitForm.querySelector<HTMLButtonElement>('button[type="submit"]')
+  if (note && button) void submitWaitlist(waitForm, note, button)
 })
