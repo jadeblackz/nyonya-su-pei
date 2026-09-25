@@ -1847,28 +1847,23 @@
   background: color-mix(in oklab, var(--color-ink) 40%, transparent);
 }
 
-/* Logo: NSP mark + one-line wordmark */
+/* Logo image + one-line wordmark */
 .site-logo {
   min-width: 0;
   max-width: 100%;
   overflow: hidden;
 }
 .logo-mark {
-  display: grid;
-  place-items: center;
-  flex-shrink: 0;
-  height: 2.75rem;
-  min-width: 3.25rem;
-  padding-inline: 0.45rem;
-  border-radius: 0.25rem;
-  border: 2px solid #0e5c56;
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--color-teal);
-  line-height: 1;
-  white-space: nowrap;
+  display: block;
+  flex: 0 0 3rem;
+  width: 3rem;
+  height: 3rem;
+  padding: 0.15rem;
+  border: 0;
+  border-radius: 50%;
+  outline: none;
+  background: #000;
+  object-fit: contain;
 }
 .logo-wordmark {
   min-width: 0;
@@ -1939,10 +1934,10 @@
     padding-right: 0;
   }
   header .logo-mark {
+    flex-basis: 2.5rem;
+    width: 2.5rem;
     height: 2.5rem;
-    min-width: 3rem;
-    padding-inline: 0.35rem;
-    font-size: 0.7rem;
+    padding: 0.12rem;
   }
   header #menu-open {
     width: 2.75rem;
