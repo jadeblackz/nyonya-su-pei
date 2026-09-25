@@ -1955,3 +1955,15 @@
     font-size: 0.9375rem;
   }
 }
+
+/* Footer columns: brand a touch wider so Explore sits a tad right */
+.footer-main {
+  display: grid;
+  gap: 2.5rem;
+}
+@media (min-width: 768px) {
+  .footer-main {
+    grid-template-columns: minmax(0, 1.45fr) minmax(0, 0.9fr) minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+}
