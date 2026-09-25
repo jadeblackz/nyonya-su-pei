@@ -1,47 +1,5 @@
 import './styles.css'
 
-const root = document.documentElement
-
-// Text size cycle: regular → large → larger
-const sizes = [
-  { key: 'regular', label: 'A', aria: 'Regular text. Press to change text size.', scale: '' },
-  { key: 'large', label: 'A+', aria: 'Large text. Press to change text size.', scale: '1.125' },
-  { key: 'larger', label: 'A++', aria: 'Larger text. Press to change text size.', scale: '1.25' },
-] as const
-
-let sizeIndex = 0
-try {
-  const saved = localStorage.getItem('nsp-text-size')
-  const idx = sizes.findIndex((s) => s.key === saved)
-  if (idx >= 0) sizeIndex = idx
-} catch {
-  /* ignore */
-}
-
-function applyTextSize() {
-  const s = sizes[sizeIndex]
-  if (s.scale) root.style.fontSize = `${parseFloat(s.scale) * 100}%`
-  else root.style.removeProperty('font-size')
-  const btn = document.getElementById('text-size-btn')
-  if (btn) {
-    btn.setAttribute('aria-label', s.aria)
-    btn.setAttribute('title', s.aria.replace('. Press to change text size.', ''))
-    const lab = btn.querySelector('[data-size-label]')
-    if (lab) lab.textContent = s.label
-  }
-  try {
-    localStorage.setItem('nsp-text-size', s.key)
-  } catch {
-    /* ignore */
-  }
-}
-
-applyTextSize()
-document.getElementById('text-size-btn')?.addEventListener('click', () => {
-  sizeIndex = (sizeIndex + 1) % sizes.length
-  applyTextSize()
-})
-
 // Mobile menu (native dialog)
 const menu = document.getElementById('mobile-menu') as HTMLDialogElement | null
 const openBtn = document.getElementById('menu-open')

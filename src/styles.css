@@ -1427,12 +1427,6 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  html[data-text-size="large"] {
-    font-size: 20px;
-  }
-  html[data-text-size="xlarge"] {
-    font-size: 22px;
-  }
   body {
     background-color: var(--color-paper);
     color: var(--color-ink);
@@ -1953,11 +1947,6 @@
   header #menu-open {
     width: 2.75rem;
     height: 2.75rem;
-    flex-shrink: 0;
-  }
-  header #text-size-btn {
-    min-height: 2.75rem;
-    padding-inline: 0.4rem;
     flex-shrink: 0;
   }
   header .ml-auto {
