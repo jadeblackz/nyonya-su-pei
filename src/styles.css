@@ -1836,3 +1836,18 @@
     }
   }
 }
+
+/* Mobile menu dialog */
+#mobile-menu {
+  max-width: 24rem;
+  width: 100%;
+  height: 100%;
+  margin: 0 0 0 auto;
+  border: 0;
+  padding: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+#mobile-menu::backdrop {
+  background: color-mix(in oklab, var(--color-ink) 40%, transparent);
+}
