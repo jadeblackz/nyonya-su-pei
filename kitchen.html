@@ -16,24 +16,24 @@
   <script type="module" src="/src/main.ts"></script>
 </head>
 <body class="antialiased">
-  <div class="flex min-h-svh flex-col bg-paper text-ink">
+  <div class="site-shell flex min-h-svh flex-col bg-paper text-ink">
     <a href="#main" class="skip-link">Skip to content</a>
     <header class="sticky top-0 z-40">
   <div class="bg-teal text-paper">
     <div class="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2 text-sm md:px-6">
-      <p class="truncate font-medium">George Town, Penang · Small classes, by appointment</p>
+      <p class="truncate font-medium"><span class="sm:hidden">George Town, Penang</span><span class="hidden sm:inline">George Town, Penang · Small classes, by appointment</span></p>
       <a href="tel:+60164141416" class="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-md px-2 font-semibold hover:bg-teal-deep"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone size-4" aria-hidden="true"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg><span class="hidden sm:inline">+60 16-414 1416</span><span class="sm:hidden">Call</span></a>
     </div>
   </div>
   <div class="border-b border-line bg-paper/95 backdrop-blur-sm">
     <div class="mx-auto flex max-w-6xl items-center gap-3 px-4 py-2 md:px-6">
-      <a aria-label="Nyonya Su Pei, home" class="group flex min-h-14 items-center gap-3 rounded-md pr-2 text-ink" href="index.html">
+      <a aria-label="Nyonya Su Pei, home" class="site-logo group flex min-h-14 items-center gap-3 rounded-md pr-2 text-ink" href="index.html">
         <span class="logo-mark" aria-hidden="true">NSP</span><span class="logo-wordmark">Nyonya Su Pei</span>
       </a>
       <nav class="ml-4 hidden items-center gap-1 lg:flex" aria-label="Main"><a href="index.html" class="rounded-md px-3 py-3 text-base font-medium transition-colors duration-150 text-ink-soft hover:bg-paper-deep hover:text-ink">Home</a><a href="classes.html" class="rounded-md px-3 py-3 text-base font-medium transition-colors duration-150 text-ink-soft hover:bg-paper-deep hover:text-ink">Classes</a><a href="dining.html" class="rounded-md px-3 py-3 text-base font-medium transition-colors duration-150 text-ink-soft hover:bg-paper-deep hover:text-ink">Private dining</a><a aria-current="page" class="rounded-md px-3 py-3 text-base font-medium transition-colors duration-150 bg-teal-soft text-teal-deep" href="kitchen.html">Recipes & videos</a><a href="about.html" class="rounded-md px-3 py-3 text-base font-medium transition-colors duration-150 text-ink-soft hover:bg-paper-deep hover:text-ink">About</a></nav>
       <div class="ml-auto flex items-center gap-2">
         <button type="button" id="text-size-btn" class="inline-flex min-h-12 items-center gap-2 rounded-md px-3 text-sm font-semibold text-ink-soft hover:bg-paper-deep hover:text-ink" aria-label="Regular text. Press to change text size." title="Regular text"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-type size-5" aria-hidden="true"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" x2="15" y1="20" y2="20"></line><line x1="12" x2="12" y1="4" y2="20"></line></svg><span class="hidden sm:inline" data-size-label>A</span></button>
-        <a href="book.html" class="inline-flex items-center justify-center gap-2 rounded-md font-sans font-semibold tracking-tight transition-[background-color,color,box-shadow,transform] duration-150 ease-out select-none focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-teal disabled:pointer-events-none disabled:opacity-50 active:not-disabled:scale-[0.96] [&_svg]:pointer-events-none [&_svg]:shrink-0 bg-chili text-paper shadow-card hover:bg-chili-deep min-h-14 px-6 text-lg hidden sm:inline-flex">Book a seat</a>
+        <a href="book.html" class="items-center justify-center gap-2 rounded-md font-sans font-semibold tracking-tight transition-[background-color,color,box-shadow,transform] duration-150 ease-out select-none focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-teal disabled:pointer-events-none disabled:opacity-50 active:not-disabled:scale-[0.96] [&_svg]:pointer-events-none [&_svg]:shrink-0 bg-chili text-paper shadow-card hover:bg-chili-deep min-h-14 px-6 text-lg hidden sm:inline-flex">Book a seat</a>
         <button id="menu-open" class="inline-flex items-center justify-center gap-2 rounded-md font-sans font-semibold tracking-tight transition-[background-color,color,box-shadow,transform] duration-150 ease-out select-none focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-teal disabled:pointer-events-none disabled:opacity-50 active:not-disabled:scale-[0.96] [&_svg]:pointer-events-none [&_svg]:shrink-0 bg-surface text-ink shadow-card hover:bg-paper-deep size-14 lg:hidden" aria-label="Open menu" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="mobile-menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu size-6" aria-hidden="true"><path d="M4 12h16"></path><path d="M4 18h16"></path><path d="M4 6h16"></path></svg></button>
       </div>
     </div>
