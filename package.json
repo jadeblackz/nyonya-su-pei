@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "build:pages": "VITE_BASE=/nyonya-su-pei/ vite build"
+    "build:pages": "vite build"
   },
   "devDependencies": {
     "typescript": "^5.9.2",
