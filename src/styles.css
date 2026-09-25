@@ -1856,13 +1856,14 @@
 .logo-mark {
   display: grid;
   place-items: center;
+  flex-shrink: 0;
   height: 2.75rem;
-  min-width: 2.75rem;
-  padding-inline: 0.4rem;
+  min-width: 3.25rem;
+  padding-inline: 0.45rem;
   border-radius: 0.25rem;
-  border: 2px solid var(--color-teal);
+  border: 2px solid #0e5c56;
   font-family: var(--font-sans);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   color: var(--color-teal);
@@ -1874,6 +1875,7 @@
   font-weight: 600;
   letter-spacing: -0.01em;
   color: var(--color-ink, #1a1a1a);
+  white-space: nowrap;
 }
 @media (min-width: 640px) {
   .logo-wordmark { font-size: 1.25rem; }
