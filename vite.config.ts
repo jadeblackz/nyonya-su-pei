@@ -14,6 +14,7 @@ export default defineConfig({
         kitchen: resolve(__dirname, 'kitchen.html'),
         about: resolve(__dirname, 'about.html'),
         book: resolve(__dirname, 'book.html'),
+        faq: resolve(__dirname, 'faq.html'),
       },
     },
   },
