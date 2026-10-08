@@ -1858,12 +1858,6 @@
   white-space: nowrap;
   padding-inline: 0.625rem;
 }
-.site-nav .nav-paused {
-  font-size: 0.75rem;
-  line-height: 1;
-  font-weight: 500;
-  opacity: 0.7;
-}
 .book-cta {
   white-space: nowrap;
   flex-shrink: 0;
