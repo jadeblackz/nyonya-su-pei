@@ -1987,3 +1987,56 @@
     gap: 2.5rem;
   }
 }
+
+/* About hero: Cheryl stands on the left of the photo, so keep text clear of her face.
+   Phone: photo on top, text on a darker band below. Tablet/desktop: text on the right half. */
+.about-hero-img {
+  object-position: 22% 0%;
+}
+.about-hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    color-mix(in oklab, var(--color-ink) 10%, transparent) 0%,
+    color-mix(in oklab, var(--color-ink) 15%, transparent) 30%,
+    color-mix(in oklab, var(--color-ink) 82%, transparent) 46%,
+    color-mix(in oklab, var(--color-ink) 88%, transparent) 100%
+  );
+}
+@media (width < 48rem) {
+  #main > section.about-hero:first-child > .about-hero-content.relative {
+    padding-top: 15rem;
+  }
+}
+@media (width >= 48rem) {
+  .about-hero-img {
+    object-position: 30% 22%;
+  }
+  .about-hero-overlay {
+    background: linear-gradient(
+      to right,
+      color-mix(in oklab, var(--color-ink) 20%, transparent) 0%,
+      color-mix(in oklab, var(--color-ink) 30%, transparent) 42%,
+      color-mix(in oklab, var(--color-ink) 72%, transparent) 62%,
+      color-mix(in oklab, var(--color-ink) 75%, transparent) 100%
+    );
+  }
+  .about-hero-content {
+    align-items: flex-end;
+  }
+  .about-hero-content > * {
+    width: 50%;
+    max-width: 50%;
+  }
+}
+@media (width >= 64rem) {
+  .about-hero-content > * {
+    width: 46%;
+    max-width: 46%;
+  }
+}
+@media (48rem <= width < 64rem) {
+  .about-hero h1 {
+    font-size: 2.75rem;
+    line-height: 1.1;
+  }
+}
