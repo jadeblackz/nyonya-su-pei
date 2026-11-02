@@ -15,6 +15,7 @@ export default defineConfig({
         about: resolve(__dirname, 'about.html'),
         book: resolve(__dirname, 'book.html'),
         faq: resolve(__dirname, 'faq.html'),
+        gallery: resolve(__dirname, 'gallery.html'),
       },
     },
   },

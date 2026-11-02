@@ -2040,3 +2040,20 @@
     line-height: 1.1;
   }
 }
+
+/* Eight-link nav: tighten on narrower laptops so Book a seat stays visible */
+@media (width >= 80rem) and (width < 90rem) {
+  .site-nav { gap: 0; flex: 1 1 auto; }
+  .site-nav > a { padding: 0.5rem 0.5rem; font-size: 0.9375rem; }
+}
+
+/* Food gallery utilities */
+.p-4 { padding: calc(var(--spacing) * 4); }
+.mt-12 { margin-top: calc(var(--spacing) * 12); }
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.border-l-4 { border-left-style: solid; border-left-width: 4px; }
+.decoration-teal\/40 { text-decoration-color: color-mix(in oklab, var(--color-teal) 40%, transparent); }
+.hover\:decoration-teal:hover { text-decoration-color: var(--color-teal); }
+@media (width >= 40rem) { .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } .sm\:w-auto { width: auto; } }
+@media (width >= 48rem) { .md\:gap-6 { gap: calc(var(--spacing) * 6); } .md\:p-5 { padding: calc(var(--spacing) * 5); } .md\:min-h-\[26rem\] { min-height: 26rem; } }
+@media (width >= 64rem) { .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
