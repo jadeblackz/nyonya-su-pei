@@ -80,7 +80,7 @@
       </section>
     <script>
 (()=>{const q=document.getElementById('dish-search'),cards=[...document.querySelectorAll('#dish-grid .dish-card')],c=document.getElementById('dish-count');
-const favs=["Penang Char Koay Teow","Nyonya Curry Chicken","Penang Assam Laksa","Nasi Lemak","Ang Ku Kuih", "Bee Koh Moy", "Tau Ewe Bak", "Buah Keluak Heh", "Kerabu Mango", "Penang Otak-Otak", "Beef Rendang", "Jiu Hu Char", "Panggang Hoo", "Sambal Udang Petai", "Traditional Babi Pongteh", "Roti Jala"];const fg=document.getElementById('fav-grid');
+const favs=["Penang Char Koay Teow","Nyonya Curry Chicken","Penang Assam Laksa","Nasi Lemak","Ang Ku Kuih","Nyonya Sambal Kang Hoo Kia","Nyonya Asam Fish","Nyonya Assam Heh", "Bee Koh Moy", "Tau Ewe Bak", "Buah Keluak Heh", "Kerabu Mango", "Penang Otak-Otak", "Beef Rendang", "Jiu Hu Char", "Panggang Hoo", "Sambal Udang Petai", "Traditional Babi Pongteh", "Roti Jala"];const fg=document.getElementById('fav-grid');
 favs.forEach(n=>{const f=cards.find(x=>x.querySelector('span').textContent.trim()===n);if(f){const k=f.cloneNode(true);k.querySelector('img').loading='eager';fg.appendChild(k);}});
 const tf=document.getElementById('tab-fav'),ta=document.getElementById('tab-all'),pf=document.getElementById('fav-panel'),pa=document.getElementById('all-panel');
 const show=all=>{tf.setAttribute('aria-selected',!all);ta.setAttribute('aria-selected',all);pf.hidden=all;pa.hidden=!all;};
